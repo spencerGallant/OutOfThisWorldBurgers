@@ -19,8 +19,8 @@ public class AlienMovement : MonoBehaviour
     void FixedUpdate ()
  	{
  		//comment out if we want continuous movement
-	    moveX = 0;
-	    moveY = 0;
+	    //moveX = 0;
+	    //moveY = 0;
 
 	     if (Input.GetKey(KeyCode.A))
 	     {
@@ -37,6 +37,12 @@ public class AlienMovement : MonoBehaviour
 	     if (Input.GetKey(KeyCode.S))
 	     {
 	         moveY = -1f;
+	     }
+	     if(Input.GetKey(KeyCode.K)) {
+	     	speed = speed + 1;
+	     }
+	     if(Input.GetKey(KeyCode.J)) {
+	     	speed = speed - 1;
 	     }
 
 	     bool isIdle = moveX == 0 && moveY == 0;
