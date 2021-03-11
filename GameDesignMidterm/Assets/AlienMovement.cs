@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class AlienMovement : MonoBehaviour
 {
+	public Rigidbody2D rb;
+	public SpriteRenderer sr;
+	
 	public float speed = 8;
 
 	float moveX;
@@ -12,23 +15,27 @@ public class AlienMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
     }
 
     // Update is called once per frame
     void FixedUpdate ()
  	{
- 		//comment out if we want continuous movement
-	    //moveX = 0;
-	    //moveY = 0;
+ 	    
+ 	    sr = GetComponent<SpriteRenderer>();
+ 		
+ 	//comment out if we want continuous movement
+	    moveX = 0;
+	    moveY = 0;
 
 	     if (Input.GetKey(KeyCode.A))
 	     {
 	         moveX = -1f;
+	         sr.flipX = true;
 	     }
 	     if (Input.GetKey(KeyCode.D))
 	     {
 	         moveX = +1f;
+	         sr.flipX = false;
 	     }
 	     if (Input.GetKey(KeyCode.W))
 	     {
@@ -68,8 +75,6 @@ public class AlienMovement : MonoBehaviour
 	     // 	}
 
 	     // }
-
-
 	     
 	 	
  	}

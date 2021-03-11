@@ -5,6 +5,7 @@ using UnityEngine;
 public class InitialCowMovement : MonoBehaviour
 {
 	public Rigidbody2D rb;
+	public SpriteRenderer sr;
 
 	public int min_speed = 100;
 	public int max_speed = 300;
@@ -18,8 +19,11 @@ public class InitialCowMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-    }
+    	rb = GetComponent<Rigidbody2D>();
+    	sr = GetComponent<SpriteRenderer>();
+    	if ( rb.GetPointVelocity( new Vector2( 0, 0 ) ).x < 0 ) sr.flipX = false;
+    	else sr.flipX = true;
+     }
 
     void FixedUpdate() {
 
