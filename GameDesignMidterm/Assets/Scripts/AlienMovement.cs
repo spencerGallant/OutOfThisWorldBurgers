@@ -11,6 +11,7 @@ public class AlienMovement : MonoBehaviour
 	public Sprite sprite1;
 	public Sprite sprite2;
 
+	public Vector2 originalPosition;
 	public TextMeshProUGUI countText;
 	public int count;
 
@@ -28,6 +29,7 @@ public class AlienMovement : MonoBehaviour
 		gameOver.SetActive(false);
 		movement = true;
 		count = 0;
+		originalPosition = transform.position;
 	}
 
     // Update is called once per frame
@@ -139,7 +141,8 @@ public class AlienMovement : MonoBehaviour
 		movement = true;
 		count = 0;
 		cows.Reset();
-    }
+		transform.position = originalPosition;
+	}
 	public void SetCountText()
     {
 		countText.text = "Count: " + count.ToString();

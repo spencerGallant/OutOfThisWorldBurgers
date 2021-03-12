@@ -12,11 +12,14 @@ public class InitialCowMovement : MonoBehaviour
 	public int min_speed = 100;
 	public int max_speed = 300;
 
+	public Vector2 originalPosition; 
+
 	void Start() {
 		rb = GetComponent<Rigidbody2D>();
 		int dir = Random.Range(0, 2);
 		if(dir == 0) rb.AddForce(new Vector2(Random.Range(min_speed, max_speed), Random.Range(min_speed, max_speed)));
 		else rb.AddForce(new Vector2(Random.Range(-min_speed, -max_speed), Random.Range(-min_speed, -max_speed)));
+		originalPosition = transform.position;
 	}
 	// Update is called once per frame
 	void Update()
@@ -32,7 +35,7 @@ public class InitialCowMovement : MonoBehaviour
 			if (Input.GetButtonDown("Fire1"))
             {
 				alien.SpriteChange2();
-				Destroy(gameObject);
+				gameObject.SetActive(false);
 			}
 			/*
 			//checks if the mouse is clicked
@@ -59,10 +62,11 @@ public class InitialCowMovement : MonoBehaviour
 
 	public void Reset()
     {
+		gameObject.SetActive(true);
 		rb = GetComponent<Rigidbody2D>();
 		sr = GetComponent<SpriteRenderer>();
-		if (rb.GetPointVelocity(new Vector2(0, 0)).x < 0) sr.flipX = false;
-		else sr.flipX = true;
+		transform.position = originalPosition;
+
 	}
 	
 }
