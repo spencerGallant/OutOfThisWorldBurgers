@@ -56,5 +56,13 @@ public class InitialCowMovement : MonoBehaviour
     void FixedUpdate() {
 
     }
+
+	public void Reset()
+    {
+		rb = GetComponent<Rigidbody2D>();
+		sr = GetComponent<SpriteRenderer>();
+		if (rb.GetPointVelocity(new Vector2(0, 0)).x < 0) sr.flipX = false;
+		else sr.flipX = true;
+	}
 	
 }

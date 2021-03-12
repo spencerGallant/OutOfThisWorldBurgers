@@ -10,8 +10,12 @@ public class AlienMovement : MonoBehaviour
 	public bool movement;
 	public Sprite sprite1;
 	public Sprite sprite2;
+
 	public TextMeshProUGUI countText;
 	public int count;
+
+	public GameObject gameOver;
+	public InitialCowMovement cows;
 
 	public float speed = 8;
 
@@ -21,6 +25,7 @@ public class AlienMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+		gameOver.SetActive(false);
 		movement = true;
 		count = 0;
 	}
@@ -112,6 +117,7 @@ public class AlienMovement : MonoBehaviour
 		{
 			sr.sprite = sprite1;
 		}
+		gameOver.SetActive(true);
 	}
 
 	public void SpriteChange2()
@@ -129,8 +135,10 @@ public class AlienMovement : MonoBehaviour
 	}
 	private void Restart()
     {
+		gameOver.SetActive(false);
 		movement = true;
 		count = 0;
+		cows.Reset();
     }
 	public void SetCountText()
     {
