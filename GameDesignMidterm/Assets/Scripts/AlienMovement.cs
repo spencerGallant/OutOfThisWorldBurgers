@@ -15,6 +15,7 @@ public class AlienMovement : MonoBehaviour
 	public TextMeshProUGUI countText;
 	public int count;
 
+	public GameObject door1;
 	public GameObject gameOver;
 	public InitialCowMovement cows;
 
@@ -27,6 +28,7 @@ public class AlienMovement : MonoBehaviour
     void Start()
     {
 		gameOver.SetActive(false);
+		door1.SetActive(true);
 		movement = true;
 		count = 0;
 		originalPosition = transform.position;
@@ -39,6 +41,7 @@ public class AlienMovement : MonoBehaviour
  	    sr = GetComponent<SpriteRenderer>();
 
 		SetCountText();
+		OpenDoor(count);
 
  		
  	//comment out if we want continuous movement
@@ -142,9 +145,22 @@ public class AlienMovement : MonoBehaviour
 		count = 0;
 		cows.Reset();
 		transform.position = originalPosition;
+		if (sr.sprite == sprite2)
+        {
+			sr.sprite = sprite1;
+        }
+		door1.SetActive(true);
 	}
 	public void SetCountText()
     {
 		countText.text = "Count: " + count.ToString();
 	}
+
+	public void OpenDoor(int count)
+    {
+		if (count == 1)
+        {
+			door1.SetActive(false);
+        }
+    }
 }
