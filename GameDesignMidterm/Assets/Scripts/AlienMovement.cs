@@ -10,6 +10,7 @@ public class AlienMovement : MonoBehaviour
 	public bool movement;
 	public Sprite sprite1;
 	public Sprite sprite2;
+	public TextMeshProUGUI countText;
 	public int count;
 
 	public float speed = 8;
@@ -29,7 +30,8 @@ public class AlienMovement : MonoBehaviour
  	{
  	    
  	    sr = GetComponent<SpriteRenderer>();
-	
+
+		SetCountText();
 
  		
  	//comment out if we want continuous movement
@@ -89,7 +91,7 @@ public class AlienMovement : MonoBehaviour
 		}
 		if (Input.GetKey(KeyCode.Space))
         {
-			movement = true;
+			Restart();
         }
 
 
@@ -105,7 +107,11 @@ public class AlienMovement : MonoBehaviour
 
 	private void Death()
 	{
-		movement = false;	
+		movement = false;
+		if (sr.sprite == sprite2) // if the spriteRenderer sprite = sprite1 then change to sprite2
+		{
+			sr.sprite = sprite1;
+		}
 	}
 
 	public void SpriteChange2()
@@ -120,5 +126,14 @@ public class AlienMovement : MonoBehaviour
 			sr.sprite = sprite1;
 			count++;
 		}
+	}
+	private void Restart()
+    {
+		movement = true;
+		count = 0;
+    }
+	public void SetCountText()
+    {
+		countText.text = "Count: " + count.ToString();
 	}
 }
