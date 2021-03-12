@@ -62,7 +62,7 @@ public class InitialCowMovement : MonoBehaviour
 
 	public void Reset()
     {
-		gameObject.SetActive(true);
+		gameObject.SetActive(true);	
 		rb = GetComponent<Rigidbody2D>();
 		sr = GetComponent<SpriteRenderer>();
 		transform.position = originalPosition;
