@@ -40,11 +40,18 @@ public class AlienMovement : MonoBehaviour
 	public AudioSource music;
 	public AudioSource losemusic;
 
+	public AudioSource cowsfx;
+	public AudioClip pickupsfx1;	
+	public AudioClip pickupsfx2;	
+	public AudioClip dropsfx1;	
+	public AudioClip dropsfx2;
+
 	public float speed = 8;
 	public int final_count;
 
 	float moveX;
 	float moveY;
+
 
     // Start is called before the first frame update
     void Start()
@@ -55,6 +62,7 @@ public class AlienMovement : MonoBehaviour
 		count = 0;
 		originalPosition = transform.position;
 		winScreen.SetActive(false);
+		music.Play();
 	}
 
     // Update is called once per frame
@@ -136,7 +144,7 @@ public class AlienMovement : MonoBehaviour
 	}
 	 void OnCollisionEnter2D(Collision2D other)
 	{
-		if (other.gameObject.CompareTag("Cows"))
+		if (other.gameObject.CompareTag("Cows") && !gameOver.activeInHierarchy && !winScreen.activeInHierarchy)
 		{
 			Death();
 		}
@@ -150,7 +158,7 @@ public class AlienMovement : MonoBehaviour
 		{
 			sr.sprite = sprite1;
 		}
-		music.Pause();
+		music.Stop();
 		losemusic.Play();
 		gameOver.SetActive(true);
 	}
@@ -158,6 +166,7 @@ public class AlienMovement : MonoBehaviour
 	public void SpriteChange2()
     {
 			sr.sprite = sprite2;
+			if (Random.value > 0.5f) cowsfx.PlayOneShot(pickupsfx1); else cowsfx.PlayOneShot(pickupsfx2);
 	}
 
 	public void SpriteChange1()
@@ -166,14 +175,18 @@ public class AlienMovement : MonoBehaviour
 		{
 			sr.sprite = sprite1;
 			count++;
+			if (Random.value > 0.5f) cowsfx.PlayOneShot(dropsfx1); else cowsfx.PlayOneShot(dropsfx2);
+
+
 		}
 	}
 	private void Restart()
     {
 		gameOver.SetActive(false);
 		winScreen.SetActive(false);
-		movement = true;
-		count = 0;
+		losemusic.Stop();
+		music.Play();
+
 		cows.Reset();
 		cows1.Reset();
 		cows2.Reset();
@@ -190,14 +203,15 @@ public class AlienMovement : MonoBehaviour
 		cows13.Reset();
 		cows14.Reset();
 		transform.position = originalPosition;
-		if (sr.sprite == sprite2)
-        {
-			sr.sprite = sprite1;
-        }
+		rb.velocity = new Vector2(0.0f, 0.0f);
+		if (sr.sprite == sprite2) sr.sprite = sprite1;
 		door1.SetActive(true);
 		door2.SetActive(true);
 		door3.SetActive(true);
 		door4.SetActive(true);
+		movement = true;
+		count = 0;
+
 }
 	public void SetCountText()
     {
@@ -228,7 +242,7 @@ public class AlienMovement : MonoBehaviour
     {
 		if (count == final_count)
         {
-        		music.Pause();
+        		music.Stop();
 			
 			losemusic.Play();
 			winScreen.SetActive(true);

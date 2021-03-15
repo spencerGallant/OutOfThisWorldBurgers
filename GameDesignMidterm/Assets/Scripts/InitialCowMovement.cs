@@ -10,7 +10,7 @@ public class InitialCowMovement : MonoBehaviour
 	public AlienMovement alien;
 
 	public int min_speed = 100;
-	public int max_speed = 300;
+	public int max_speed = 175;
 
 	public Vector2 originalPosition; 
 
@@ -70,6 +70,10 @@ public class InitialCowMovement : MonoBehaviour
 		rb = GetComponent<Rigidbody2D>();
 		sr = GetComponent<SpriteRenderer>();
 		transform.position = originalPosition;
+		rb.velocity = new Vector2(0.0f, 0.0f);
+		int dir = Random.Range(0, 2);
+		if(dir == 0) rb.AddForce(new Vector2(Random.Range(min_speed, max_speed), Random.Range(min_speed, max_speed)));
+		else rb.AddForce(new Vector2(Random.Range(-min_speed, -max_speed), Random.Range(-min_speed, -max_speed)));
 
 	}
 	

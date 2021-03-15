@@ -7,10 +7,31 @@ MonoImporter:
   - rb: {instanceID: 0}
   - sr: {instanceID: 0}
   - sprite1: {fileID: 21300000, guid: adda7d8365d8bd0c2b0a22ab5a4a6e2d, type: 3}
-  - sprite2: {fileID: 21300000, guid: e5a7ad75eccf77b42a0edf4e4d3b9d30, type: 3}
+  - sprite2: {fileID: 21300000, guid: e4bdb82aa8ea2ad23aa187775003ca0f, type: 3}
   - countText: {instanceID: 0}
+  - door1: {instanceID: 0}
+  - door2: {instanceID: 0}
+  - door3: {instanceID: 0}
+  - door4: {instanceID: 0}
   - gameOver: {instanceID: 0}
   - cows: {instanceID: 0}
+  - cows1: {instanceID: 0}
+  - cows2: {instanceID: 0}
+  - cows3: {instanceID: 0}
+  - cows4: {instanceID: 0}
+  - cows5: {instanceID: 0}
+  - cows6: {instanceID: 0}
+  - cows7: {instanceID: 0}
+  - cows8: {instanceID: 0}
+  - cows9: {instanceID: 0}
+  - cows10: {instanceID: 0}
+  - cows11: {instanceID: 0}
+  - cows12: {instanceID: 0}
+  - cows13: {instanceID: 0}
+  - cows14: {instanceID: 0}
+  - winScreen: {instanceID: 0}
+  - music: {instanceID: 0}
+  - losemusic: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
