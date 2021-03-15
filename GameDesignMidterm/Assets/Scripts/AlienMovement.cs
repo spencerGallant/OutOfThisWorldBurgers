@@ -21,6 +21,20 @@ public class AlienMovement : MonoBehaviour
 	public GameObject door4;
 	public GameObject gameOver;
 	public InitialCowMovement cows;
+	public InitialCowMovement cows1;
+	public InitialCowMovement cows2;
+	public InitialCowMovement cows3;
+	public InitialCowMovement cows4;
+	public InitialCowMovement cows5;
+	public InitialCowMovement cows6;
+	public InitialCowMovement cows7;
+	public InitialCowMovement cows8;
+	public InitialCowMovement cows9;
+	public InitialCowMovement cows10;
+	public InitialCowMovement cows11;
+	public InitialCowMovement cows12;
+	public InitialCowMovement cows13;
+	public InitialCowMovement cows14;
 	public GameObject winScreen;
 	
 	public AudioSource music;
@@ -161,6 +175,20 @@ public class AlienMovement : MonoBehaviour
 		movement = true;
 		count = 0;
 		cows.Reset();
+		cows1.Reset();
+		cows2.Reset();
+		cows3.Reset();
+		cows4.Reset();
+		cows5.Reset();
+		cows6.Reset();
+		cows7.Reset();
+		cows8.Reset();
+		cows9.Reset();
+		cows10.Reset();
+		cows11.Reset();
+		cows12.Reset();
+		cows13.Reset();
+		cows14.Reset();
 		transform.position = originalPosition;
 		if (sr.sprite == sprite2)
         {

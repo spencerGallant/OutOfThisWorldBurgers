@@ -54,6 +54,10 @@ public class InitialCowMovement : MonoBehaviour
 				}
 			}*/
 		}
+		if (Input.GetKey(KeyCode.Space))
+		{
+			Reset();
+		}
 	}
 
     void FixedUpdate() {
