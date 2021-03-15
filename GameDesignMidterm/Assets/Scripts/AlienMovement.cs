@@ -204,7 +204,7 @@ public class AlienMovement : MonoBehaviour
 		cows14.Reset();
 		transform.position = originalPosition;
 		rb.velocity = new Vector2(0.0f, 0.0f);
-		if (sr.sprite == sprite2) sr.sprite = sprite1;
+		sr.sprite = sprite1;
 		door1.SetActive(true);
 		door2.SetActive(true);
 		door3.SetActive(true);
