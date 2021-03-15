@@ -16,6 +16,9 @@ public class AlienMovement : MonoBehaviour
 	public int count;
 
 	public GameObject door1;
+	public GameObject door2;
+	public GameObject door3;
+	public GameObject door4;
 	public GameObject gameOver;
 	public InitialCowMovement cows;
 	public GameObject winScreen;
@@ -49,10 +52,14 @@ public class AlienMovement : MonoBehaviour
 		SetCountText();
 		OpenDoor(count);
 		WinScreen(count);
+		if (Input.GetKey("escape"))
+		{
+			Application.Quit();
+		}
 
- 		
- 	//comment out if we want continuous movement
-	    moveX = 0;
+
+		//comment out if we want continuous movement
+		moveX = 0;
 	    moveY = 0;
 		if(movement == true)
         {
@@ -150,6 +157,7 @@ public class AlienMovement : MonoBehaviour
 	private void Restart()
     {
 		gameOver.SetActive(false);
+		winScreen.SetActive(false);
 		movement = true;
 		count = 0;
 		cows.Reset();
@@ -159,7 +167,10 @@ public class AlienMovement : MonoBehaviour
 			sr.sprite = sprite1;
         }
 		door1.SetActive(true);
-	}
+		door2.SetActive(true);
+		door3.SetActive(true);
+		door4.SetActive(true);
+}
 	public void SetCountText()
     {
 		countText.text = "Count: " + count.ToString();
@@ -170,6 +181,18 @@ public class AlienMovement : MonoBehaviour
 		if (count == 1)
         {
 			door1.SetActive(false);
+        }
+		if (count == 3)
+        {
+			door2.SetActive(false);
+        }
+		if(count == 6)
+        {
+			door3.SetActive(false);
+        }
+		if(count == 10)
+        {
+			door4.SetActive(false);
         }
     }
 
@@ -184,4 +207,5 @@ public class AlienMovement : MonoBehaviour
 
         }
     }
+	
 }

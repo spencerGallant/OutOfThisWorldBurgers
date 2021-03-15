@@ -373,7 +373,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 11.4}
-  m_SizeDelta: {x: 868, y: 491.36053}
+  m_SizeDelta: {x: 1550, y: 900}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &146558368
 MonoBehaviour:
@@ -700,6 +700,7 @@ GameObject:
   - component: {fileID: 347087069}
   - component: {fileID: 347087071}
   - component: {fileID: 347087070}
+  - component: {fileID: 347087072}
   m_Layer: 0
   m_Name: door2
   m_TagString: Untagged
@@ -870,6 +871,22 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!19719996 &347087072
+TilemapCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 347087068}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_MaximumTileChangeCount: 1000
+  m_ExtrusionFactor: 0.00001
 --- !u!1001 &351677791
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1049,6 +1066,7 @@ GameObject:
   - component: {fileID: 589949721}
   - component: {fileID: 589949723}
   - component: {fileID: 589949722}
+  - component: {fileID: 589949724}
   m_Layer: 0
   m_Name: door4
   m_TagString: Untagged
@@ -1219,6 +1237,22 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!19719996 &589949724
+TilemapCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 589949720}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_MaximumTileChangeCount: 1000
+  m_ExtrusionFactor: 0.00001
 --- !u!114 &619919501 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2025786121326626932, guid: 2264309802289477c80d69d61b571d93,
@@ -1325,6 +1359,7 @@ GameObject:
   - component: {fileID: 700995577}
   - component: {fileID: 700995579}
   - component: {fileID: 700995578}
+  - component: {fileID: 700995580}
   m_Layer: 0
   m_Name: door1
   m_TagString: Untagged
@@ -1495,6 +1530,22 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!19719996 &700995580
+TilemapCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 700995576}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_MaximumTileChangeCount: 1000
+  m_ExtrusionFactor: 0.00001
 --- !u!1 &710514818
 GameObject:
   m_ObjectHideFlags: 0
@@ -1884,14 +1935,17 @@ MonoBehaviour:
   originalPosition: {x: 0, y: 0}
   countText: {fileID: 2107003810}
   count: 0
-  door1: {fileID: 347087068}
+  door1: {fileID: 700995576}
+  door2: {fileID: 347087068}
+  door3: {fileID: 1764755122}
+  door4: {fileID: 589949720}
   gameOver: {fileID: 146558366}
   cows: {fileID: 619919501}
   winScreen: {fileID: 934651106}
   music: {fileID: 710514819}
   losemusic: {fileID: 1741442661}
   speed: 8
-  final_count: 1
+  final_count: 15
 --- !u!70 &919195240
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -2107,7 +2161,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0.7500305, y: -29.32}
-  m_SizeDelta: {x: 869.5, y: 491.36053}
+  m_SizeDelta: {x: 1550, y: 900}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &934651108
 MonoBehaviour:
@@ -7799,6 +7853,7 @@ GameObject:
   - component: {fileID: 1764755123}
   - component: {fileID: 1764755125}
   - component: {fileID: 1764755124}
+  - component: {fileID: 1764755126}
   m_Layer: 0
   m_Name: door3
   m_TagString: Untagged
@@ -7951,6 +8006,22 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!19719996 &1764755126
+TilemapCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1764755122}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_MaximumTileChangeCount: 1000
+  m_ExtrusionFactor: 0.00001
 --- !u!1001 &1841660032
 PrefabInstance:
   m_ObjectHideFlags: 0
