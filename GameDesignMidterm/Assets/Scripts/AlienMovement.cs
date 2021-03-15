@@ -135,7 +135,8 @@ public class AlienMovement : MonoBehaviour
 
 			// }
 		}
-		if (Input.GetKey(KeyCode.Space))
+		if ((Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.R)) && 
+		(gameOver.activeInHierarchy || winScreen.activeInHierarchy))
         {
 			Restart();
         }
@@ -182,6 +183,7 @@ public class AlienMovement : MonoBehaviour
 	}
 	private void Restart()
     {
+    		rb = GetComponent<Rigidbody2D>();
 		gameOver.SetActive(false);
 		winScreen.SetActive(false);
 		losemusic.Stop();
