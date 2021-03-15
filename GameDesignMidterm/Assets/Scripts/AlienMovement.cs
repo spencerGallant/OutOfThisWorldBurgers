@@ -19,6 +19,9 @@ public class AlienMovement : MonoBehaviour
 	public GameObject gameOver;
 	public InitialCowMovement cows;
 	public GameObject winScreen;
+	
+	public AudioSource music;
+	public AudioSource losemusic;
 
 	public float speed = 8;
 	public int final_count;
@@ -126,6 +129,8 @@ public class AlienMovement : MonoBehaviour
 		{
 			sr.sprite = sprite1;
 		}
+		music.Pause();
+		losemusic.Play();
 		gameOver.SetActive(true);
 	}
 
@@ -172,7 +177,11 @@ public class AlienMovement : MonoBehaviour
     {
 		if (count == final_count)
         {
+        		music.Pause();
+			
+			losemusic.Play();
 			winScreen.SetActive(true);
+
         }
     }
 }
