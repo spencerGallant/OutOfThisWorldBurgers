@@ -18,8 +18,10 @@ public class AlienMovement : MonoBehaviour
 	public GameObject door1;
 	public GameObject gameOver;
 	public InitialCowMovement cows;
+	public GameObject winScreen;
 
 	public float speed = 8;
+	public int final_count;
 
 	float moveX;
 	float moveY;
@@ -32,6 +34,7 @@ public class AlienMovement : MonoBehaviour
 		movement = true;
 		count = 0;
 		originalPosition = transform.position;
+		winScreen.SetActive(false);
 	}
 
     // Update is called once per frame
@@ -42,6 +45,7 @@ public class AlienMovement : MonoBehaviour
 
 		SetCountText();
 		OpenDoor(count);
+		WinScreen(count);
 
  		
  	//comment out if we want continuous movement
@@ -161,6 +165,14 @@ public class AlienMovement : MonoBehaviour
 		if (count == 1)
         {
 			door1.SetActive(false);
+        }
+    }
+
+	private void WinScreen(int count)
+    {
+		if (count == final_count)
+        {
+			winScreen.SetActive(true);
         }
     }
 }
